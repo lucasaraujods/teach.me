@@ -6,7 +6,7 @@
     --border-primary: #3c393f;
     --border-secondary: #692955;
     --primary: #d6409f;
-    -secondary: #232225;
+    --secondary: #232225;
     --text-color: #eeeef0;
     --text-color-question: #b5b2bc;
     --text-color-disabled: #6f6d78; 
@@ -62,8 +62,29 @@ details summary {
     padding: 5px 10px ;
     display: flex;
     list-style: none;
+    justify-content: space-between;
+}
+details summary::after{
+    content: "Δ";
+    transition: rotate 200ms ease-in;
+}
+details[open] summary::after{
+    content: "Δ";
+    transition: rotate 200ms ease-out;
+    rotate: 180deg;
 }
 
+details button{
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 8px;
+    padding: 5px;
+    background-color: var(--secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-color);
+}
 .suggestion summary{
 
     background-color: var(--primary);
@@ -73,10 +94,63 @@ details summary {
     height: 100%;
     display: flex;
     padding: 0 150px;
-    
+    flex-direction: column;
 }
 
-
-
-
-
+.box-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    height: 100%;
+}
+.box-home span{
+    font-weight: 500;
+}
+.box-home h1{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.box-home h1 span{
+    color: var(--primary);
+}
+.box-home p{
+    font-weight: 300;
+}
+.box-input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.box-input textarea{
+    min-height: 40px;
+    height: auto;
+    resize: vertical;
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    outline: none;
+    color: var(--text-color);
+}
+.box-input button{
+    width: 170px;
+    margin-left: auto;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: var(--text-color);
+}
+.box-footer{
+    width: 100%;
+    padding: 20px;
+}
+.box-footer span{
+    color: var(--primary);
+}
+.box-footer p {
+    text-align: center;
+    font-weight: 500;
+}
