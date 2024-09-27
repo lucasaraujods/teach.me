@@ -189,7 +189,7 @@ details button{
     margin-bottom: 15px;
     color: var(--text-color-question);
 }
-
+/* estilo da caixa de resposta*/ 
 .answer{
     width: 100%;
     background-color: var(--foreground-primary);
