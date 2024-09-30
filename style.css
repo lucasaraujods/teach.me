@@ -222,7 +222,7 @@ details button{
 }
   
 .feedback h2 span {
-    color: var(--primary);
+    color: var(--border-secondary);
 }
   
 .feedback p {
