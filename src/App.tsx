@@ -10,16 +10,37 @@ function App() {
   const [textarea, setTextArea] = useState<string>('')
   const [chat, setChat] = useState<string[]>([])
 
+    {/*
+      Esté função abaixo esta fazendo o controle de fluxo, ao apertar o botão de estudar novo tópico pós operação, deve voltar para a tela de inicio/home, mostrando o estado pendente
+    */}
+  function resetChat(){
+    setProgress('pending')
+    setChat([])
+  }
+
   function handleSubmitChat(){
     if(!textarea){
       return
     } 
-   if(progess === 'pending'){
-      setChat(text => [...text, textarea])
+
+    const message = textarea
+    setTextArea('')
+
+    if(progess === 'pending'){
+      setChat(text => [...text, message])
       setChat(text => [...text, 'Aqui será a pergunta gerada por ia'])
       console.log(chat)
       setProgress('started')
-   }
+      return
+    }
+
+   setChat(text => [...text, message])
+   setChat(text => [...text, 'Aqui será o feedback gerado por uma ia'])
+
+   {/*
+      Aqui mantendo a tela sem a barra de digitar de pesquisar e botão de envio
+    */}
+   setProgress('done')
   }
 
   console.log(textarea)
@@ -81,23 +102,28 @@ function App() {
                 <h2>Feedback teach<span>.me</span></h2>
                 <p>{chat[3]}</p>
             <div className="actions">
-              <button>Estudar novo tópico</button>
+              <button onClick={resetChat}>Estudar novo tópico</button>
             </div>
           </div>
           )}
         </div>
         )}
         
+        {/*
+          Aqui se o progresso  for diferente de done, assim a tela de input de caixa de menssagens será exibida juntamente com o botão de enviar
+        */}
+       {progess !== 'done' && (
         <div className="box-input">
-            <textarea 
-              value={textarea}
-              onChange={element => setTextArea(element.target.value)}
-              placeholder={
-                progess === 'started' ? "insira a sua resposta..." : "Indira o tema que deseja estudar..."
-              }
-            />
-            <button onClick={handleSubmitChat}>{progess === 'pending' ?  'Enviar pergunta' : 'enviar resposta'}</button>
-          </div> 
+          <textarea 
+            value={textarea}
+            onChange={element => setTextArea(element.target.value)}
+            placeholder={
+            progess === 'started' ? "insira a sua resposta..." : "Indira o tema que deseja estudar..."
+           }
+         />
+         <button onClick={handleSubmitChat}>{progess === 'pending' ?  'Enviar pergunta' : 'enviar resposta'}</button>
+       </div> 
+       )}
 
         <footer className="box-footer">
           <p>teach<span>.me</span></p>
