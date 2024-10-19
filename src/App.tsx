@@ -4,7 +4,7 @@ import { ItemSuggestion } from "./components/ItemSuggestion"
 type ProgressType = 'pending' | 'started' | 'done'
 //pending deixara de ser pendente e começa a se inicializar e termina, assim: 1-pendente 2-começou 3- termino
 
-const chat = ['Tema']
+const chat = ['Tema', 'Pergunta', 'Resposta', 'Feedback']
 function App() {
   const [progess, setProgress] = useState<ProgressType>('pending')
   const [textarea, setTextArea] = useState<string>('')
