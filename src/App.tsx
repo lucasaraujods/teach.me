@@ -43,7 +43,6 @@ function App() {
    setProgress('done')
   }
 
-  console.log(textarea)
   
   return (
 
@@ -51,16 +50,16 @@ function App() {
       <div className="sidebar">
         <details open className="suggestion">
           <summary >Tópicos sugeridos </summary>
-          <ItemSuggestion title="HTML"/>
-          <ItemSuggestion title="javaScript"/>
-          <ItemSuggestion title="CSS"/>
-          <ItemSuggestion title="TypeScript"/>
+          <ItemSuggestion title="HTML" onClick={() =>setTextArea('HTML')}/>
+          <ItemSuggestion title="javaScript" onClick={() =>setTextArea('JavaScript')}/>
+          <ItemSuggestion title="CSS" onClick={() =>setTextArea('CSS')}/>
+          <ItemSuggestion title="TypeScript" onClick={() =>setTextArea('TypeScript')}/>
         </details>
 
         <details open className="historic">
-          <summary>Históricos </summary>
-          <ItemSuggestion title="Java"/>
-          <ItemSuggestion title="PHP"/>
+          <summary>Históricos</summary>
+          <ItemSuggestion title="Java" onClick={() =>setTextArea('Java')}/>
+          <ItemSuggestion title="PHP"onClick={() =>setTextArea('PHP')}/>
         </details>
       </div>
 
